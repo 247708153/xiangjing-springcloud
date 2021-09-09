@@ -4,5 +4,9 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="auth" target="1.8" />
+      <module name="xiangjing-springcloud" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

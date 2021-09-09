@@ -4,20 +4,20 @@ echo '1.1:make sure java8,git and maven are installed and set up environment var
 echo '1.2:make sure docker and docker-compose are installed and environment variables are set up'
 
 #verify that the environment variables are ready
-read -r -p "is the development environment ready? [Y/n] " envConfirm
-case $envConfirm in
-    [yY][eE][sS]|[yY])
-		echo "Yes ,resume"
-		;;
-    [nN][oO]|[nN])
-		echo "No ,terminate execution"
-		exit 1
-       	;;
-    *)
-		echo "Invalid input... terminate execution"
-		exit 1
-		;;
-esac
+#read -r -p "is the development environment ready? [Y/n] " envConfirm
+#case $envConfirm in
+#    [yY][eE][sS]|[yY])
+#		echo "Yes ,resume"
+#		;;
+#    [nN][oO]|[nN])
+#		echo "No ,terminate execution"
+#		exit 1
+#       	;;
+#    *)
+#		echo "Invalid input... terminate execution"
+#		exit 1
+#		;;
+#esac
 
 echo '==================1.3 optionally clean up containers and images that are currently started by ths script=============='
 #optionally clean up containers and images that are currently started by ths script
@@ -42,3 +42,4 @@ echo ''
 docker-compose -f docker-compose.yml up -d mysql
 docker-compose -f docker-compose.yml up -d redis
 docker-compose -f docker-compose.yml up -d rabbitmq
+docker-compose -f docker-compose.yml up -d mysql-init

@@ -39,29 +39,15 @@ services:
       - ../data/mysql/conf:/etc/mysql/conf.d
       - ../data/mysql/lib:/var/lib/mysql
       - ../data/mysql/log:/var/log/mysql
+      - ../auth/db:/docker-entrypoint-initdb.d
+#      - ./init-db.sh:/docker-entrypoint-initdb.d
     environment:
       TZ: Asia/Shanghai
       MYSQL_ROOT_PASSWORD: ${DATASOURCE_PASSWORD}
       MYSQL_USER: jaspic
       MYSQL_PASSWORD: Jaspic_mysql
-      MYSQL_DATABASE: jaspic
+      MYSQL_DATABASE: sc_auth
     env_file: .env
-
-#  mysql-init:
-#    image: mysql:5.7
-#    container_name: sc-mysql-init
-#    command: /init-db.sh
-#    networks:
-#      - sc-net
-#    volumes:
-#      - ../auth/db:/sql/auth
-#      - ../gateway/gateway-admin/src/main/db:/sql/gateway
-#      - ../sysadmin/db:/sql/sysadmin
-#      - ./init-db.sh:/init-db.sh
-#    environment:
-#      MYSQL_ROOT_PASSWORD: root123
-#    depends_on:
-#      - mysql
 
 networks:
   sc-net:
