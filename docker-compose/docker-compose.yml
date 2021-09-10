@@ -17,6 +17,9 @@ services:
     image: rabbitmq:management-alpine
     container_name: sc-rabbitmq
     restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBIT_MQ_USERNAME}
+      RABBITMQ_DEFAULT_PASS: ${RABBIT_MQ_PASSWORD}
     volumes:
       - ../data/rabbitmq:/var/lib/rabbitmq/mnesia
     networks:

@@ -42,4 +42,3 @@ echo ''
 docker-compose -f docker-compose.yml up -d mysql
 docker-compose -f docker-compose.yml up -d redis
 docker-compose -f docker-compose.yml up -d rabbitmq
-docker-compose -f docker-compose.yml up -d mysql-init
